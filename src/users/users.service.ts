@@ -14,4 +14,9 @@ export class UsersService {
     }):Promise<User> {
         return this.userModel.findOne({...filter});
     }
+
+    async create(): Promise<User | {warningMessage:string}> {
+        
+    }
+
 }
