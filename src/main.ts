@@ -16,7 +16,7 @@ async function bootstrap() {
   app.use(passport.initialize());
   app.use(passport.session());
   const config = new DocumentBuilder()
-    .setTitle('Boiler')
+    .setTitle('Boiler-Shop')
     .setDescription('api documentation')
     .setVersion('1.0')
     .addTag('api')
