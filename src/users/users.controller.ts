@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Get,
   Header,
   HttpCode,
   HttpStatus,
@@ -8,6 +9,7 @@ import {
   Request,
   UseGuards,
 } from '@nestjs/common';
+import { AuthGuard } from 'src/auth/auth.guard';
 import { LocalAuthGuard } from 'src/auth/local-auth.guard';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UsersService } from './users.service';
@@ -28,5 +30,11 @@ export class UsersController {
   @HttpCode(HttpStatus.OK)
   signin(@Request() req) {
     return { user: req.user, message: 'Успешная авторизация' };
+  }
+
+  @Get('/signin-check')
+  @UseGuards(AuthGuard)
+  signinCheck(@Request() req) {
+    return req.user;
   }
 }
