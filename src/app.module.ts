@@ -9,14 +9,14 @@ import { AuthModule } from './auth/auth.module';
 @Module({
   imports: [
     SequelizeModule.forRootAsync({
-      imports:[ConfigModule],
+      imports: [ConfigModule],
       useClass: SequelizeConfigService,
     }),
     ConfigModule.forRoot({
       load: [databaseConfig],
     }),
     UsersModule,
-    AuthModule
+    AuthModule,
   ],
 })
 export class AppModule {}
