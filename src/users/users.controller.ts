@@ -37,4 +37,10 @@ export class UsersController {
   signinCheck(@Request() req) {
     return req.user;
   }
+
+  @Get('/logout')
+  logout(@Request() req) {
+    req.session.destroy();
+    return {message: "Вы вышли из аккаунта"};
+  }
 }
